@@ -77,8 +77,8 @@ def two_step_prediction(file_path, need_width, need_height, threshold):
     cv2.waitKey(0)
 
 
-save_model_path = r'save_models/models/material_image_model'
-save_detail_path = r'save_models/details/material_image_details'
+save_model_path = r'save_models/models/material_image_model_20210127.h5'
+save_detail_path = r'save_models/details/material_image_details_20210127.joblib'
 saved_model, saved_detail = predict(save_model_path, save_detail_path)
 
 if __name__ == '__main__':
@@ -87,8 +87,14 @@ if __name__ == '__main__':
 
     # 整体测试一整正式的图
     # file_path = r'./data/material_image_test/coal2.jpg'
-    file_path = r'./data/material_image_test/earth4.png'
+    file_path = r'./data/material_image_test/coal.png'
+    # file_path = r'./data/material_image_test/earth4.png'
+    # file_path = r'./data/material_image_test/earth5.jpg'
+    # file_path = r'./data/material_image_test/earth06.jpg'
+    # file_path = r'./data/material_image_test/earth07.jpg'
+    # file_path = r'./data/material_image_test/earth08.jpg'
     # file_path = r'./data/material_image_test/sand.jpg'
     # file_path = r'./data/material_image_test/stone.jpg'
+    # file_path = r'./data/material_image_test/image143.png'
 
     two_step_prediction(file_path=file_path, need_width=60, need_height=60, threshold=0.8)

@@ -45,9 +45,7 @@ def get_image_rgb_hsv(img_org, percentile_threshold):
 
     r_hist = cv2.calcHist([img_org_rgb], [0], None, [256], [0, 255])
     max_r = np.argmax(r_hist).astype('int')
-    # max_r = r_hist[int(max_r_index)]
     percentile_r = np.percentile(r_hist, percentile_threshold).astype('int')
-    # percentile_r = r_hist[int(percentile_r_index)]
 
     g_hist = cv2.calcHist([img_org_rgb], [1], None, [256], [0, 255])
     max_g = np.argmax(g_hist).astype('int')

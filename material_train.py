@@ -38,7 +38,7 @@ def train(input_document_path, percentile_threshold, save_model_path, save_detai
     if not (max_acc_model is None):
         print('[INFO] 开始保存最好的模型和标签,当前模型准确率：' + str(max_acc_model.score(x_test, y_test)))
         y_pred = max_acc_model.predict(x_test)
-        print(classification_report(y_test, y_pred, target_names=y_le.classes_))
+        print(classification_report(y_test, y_pred, digits=3, target_names=y_le.classes_))
         with open(save_model_path, 'wb') as f:
             f.write(pickle.dumps(max_acc_model))
         saved_model_details = SavedModelDetails(label_encoder=y_le, percentile_threshold=percentile_threshold)
@@ -50,9 +50,9 @@ def train(input_document_path, percentile_threshold, save_model_path, save_detai
 
 if __name__ == '__main__':
     input_document_path = r'./data/material_image'
-    percentile_threshold = 90
-    save_model_path = r'save_models/models/material_image_model'
-    save_detail_path = r'save_models/details/material_image_details'
+    percentile_threshold = 70
+    save_model_path = r'save_models/models/material_image_model_20210128.h5'
+    save_detail_path = r'save_models/details/material_image_details_20210128.joblib'
 
     train(input_document_path=input_document_path, percentile_threshold=percentile_threshold,
           save_model_path=save_model_path,
